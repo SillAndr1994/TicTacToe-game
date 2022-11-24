@@ -15,10 +15,14 @@ public class Field {
         }
     }
 
+    public void clearField() {
+        System.out.print("\033[H\033[J");
+    }
+
     private List<String> createField() {
         List<String> field = new ArrayList<>();
 
-        field.add("---------------\n");
+        field.add("-----------\n");
 
         for (int i = 0; i < 3; i++) {
             for (int i1 = 0; i1 < 3; i1++) {
@@ -27,15 +31,16 @@ public class Field {
             field.add("\n");
         }
 
-        field.add("----------------");
+        field.add("-----------");
 
         return field;
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Field field1 = new Field();
 
         field1.showField();
+
     }
 }
