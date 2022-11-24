@@ -10,8 +10,12 @@ public class Field {
     }
 
     public void showField() {
-        for (String s : field) {
-            System.out.print(s);
+        for (int i = 1; i < field.size(); i++) {
+            if (i % 3 == 0) {
+                System.out.print(field.get(i) + "\n");
+            } else {
+                System.out.print(field.get(i));
+            }
         }
     }
 
@@ -23,15 +27,14 @@ public class Field {
         List<String> field = new ArrayList<>();
 
         field.add("-----------\n");
+        int counter = 1;
 
-        for (int i = 0; i < 3; i++) {
-            for (int i1 = 0; i1 < 3; i1++) {
-                field.add("|.| ");
-            }
-            field.add("\n");
+         for (int i = 1; i < 10; i++) {
+            String element = String.format("|%d|", i);
+            field.add(element);
+
         }
 
-        field.add("-----------");
 
         return field;
     }
