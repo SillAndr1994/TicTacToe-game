@@ -1,20 +1,18 @@
-import java.io.File;
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Field {
-    private List<String> field = new ArrayList<>();
+    private List<String> fieldValues = new ArrayList<>();
     public Field() {
-        this.field = createField();
+        this.fieldValues = createField();
     }
 
     public void showField() {
-        for (int i = 1; i < field.size(); i++) {
+        for (int i = 1; i < fieldValues.size(); i++) {
             if (i % 3 == 0) {
-                System.out.print(field.get(i) + "\n");
+                System.out.print(fieldValues.get(i) + "\n");
             } else {
-                System.out.print(field.get(i));
+                System.out.print(fieldValues.get(i));
             }
         }
     }
@@ -39,11 +37,24 @@ public class Field {
         return field;
     }
 
+    public void changeField(int index, String sign) {
+        fieldValues.set(index, sign);
+    }
 
-    public static void main(String[] args) throws InterruptedException {
-        Field field1 = new Field();
+    public boolean checkValue(int index) {
+        boolean result = false;
 
-        field1.showField();
+        for (int i = 1; i < fieldValues.size(); i++) {
+            if (fieldValues.get(i).equals(index)) {
+                result = false;
+            } else {
+                result = true;
+            }
+        }
+        return result;
+    }
 
+    public List<String> getFieldValues() {
+        return fieldValues;
     }
 }

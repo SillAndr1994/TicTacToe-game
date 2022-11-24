@@ -6,7 +6,7 @@ public class Player {
 
     public Player(int number, String sign) {
         this.number = number;
-        this.sign = sign;
+        this.sign = sign.toLowerCase();
     }
 
     public String getSign() {

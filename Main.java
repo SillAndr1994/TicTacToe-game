@@ -6,6 +6,5 @@ public class Main {
 
         GameMechanics mechanics = new GameMechanics(gameField, firstPlayer, secondPlayer);
 
-
     }
 }
