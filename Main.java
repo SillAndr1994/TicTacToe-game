@@ -4,7 +4,7 @@ public class Main {
         Player secondPlayer = new Player(2, "x");
         Field gameField = new Field();
 
-        GameMechanics mechanics = new GameMechanics(gameField, firstPlayer, secondPlayer);
-
+        GameMechanics gameMechanics = new GameMechanics(new Field(), new Player(1, "x"), new Player(2, "0"));
+        gameMechanics.startGame();
     }
 }

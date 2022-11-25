@@ -1,5 +1,4 @@
-import java.io.File;
-import java.util.Arrays;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -22,7 +21,9 @@ public class GameMechanics {
         while (true) {
             field.showField();
             makeAMove(firstPlayer);
+            field.showField();
             makeAMove(secondPlayer);
+
         }
 
     }
@@ -38,21 +39,32 @@ public class GameMechanics {
 
     }
 
+
     private void checkWin(Player player) {
         List<String> values = field.getFieldValues();
 
         String letters = "";
-
         for (int i = 1; i < values.size(); i++) {
-
             letters += values.get(i);
 
             if (i % 3 == 0) {
-                if (letters.length() - letters.replace(".", "").length() == 3) {
-                    System.out.println("Player: " + player.getNumber() + " win");
+                if (countLetters(letters)) {
+                    System.out.println("Player " + player.getNumber() + " win!!!!");
+                    System.exit(5);
                 }
             }
         }
+    }
+
+    private boolean countLetters(String letter) {
+        long count1 = letter.chars().filter(ch -> ch == 'x').count();
+        long count2 = letter.chars().filter(ch -> ch == '0').count();
+        boolean result = false;
+
+        if (count1 == 3 || count2 == 3) {
+            result = true;
+        }
+        return result;
     }
 
     private boolean checkCage(Player player, int index) {
@@ -61,11 +73,6 @@ public class GameMechanics {
 
     private void putValue(Player player, int index) {
         field.changeField(index, player.getSign());
-    }
-
-    public static void main(String[] args) {
-        GameMechanics gameMechanics = new GameMechanics(new Field(), new Player(1, "x"), new Player(2, "0"));
-        gameMechanics.startGame();
     }
 
 }

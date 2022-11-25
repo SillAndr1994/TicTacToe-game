@@ -7,6 +7,9 @@ public class Field {
         this.fieldValues = createField();
     }
 
+    /**
+     * Show all field values
+     */
     public void showField() {
         for (int i = 1; i < fieldValues.size(); i++) {
             if (i % 3 == 0) {
@@ -17,6 +20,10 @@ public class Field {
         }
     }
 
+
+    /**
+     * Clear field in console
+     */
     public void clearField() {
         System.out.print("\033[H\033[J");
     }
@@ -37,6 +44,12 @@ public class Field {
         return field;
     }
 
+
+    /**
+     * CHange field value by index
+     * @param index index in field
+     * @param sign player sign
+     */
     public void changeField(int index, String sign) {
         fieldValues.set(index, sign);
     }
